@@ -1,0 +1,54 @@
+package com.unrealedz.wstation.utils;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+import android.content.Context;
+import android.text.format.DateFormat;
+import android.text.format.DateUtils;
+
+public class Utils {
+	
+		
+	public static String getWeekday(String date, Context context){
+		
+		String dateWeek;
+		Date mdate = null;
+		String delims = "[-]";
+		String[] tokens = date.split(delims);
+		
+		int year = Integer.valueOf(tokens[0]);
+		int month = Integer.valueOf(tokens[1]);
+		int day = Integer.valueOf(tokens[2]);
+		
+		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		try {
+			mdate = formatter.parse(date);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		TimeZone MyTimezone = TimeZone.getDefault();
+		
+		GregorianCalendar calendar = new GregorianCalendar(MyTimezone);
+		calendar.setTime(mdate);
+		
+		int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+		
+		dateWeek = DateUtils.getDayOfWeekString(dayOfWeek, DateUtils.LENGTH_LONG) + " " + tokens[2] + " " + DateUtils.getMonthString(calendar.MONTH, DateUtils.LENGTH_LONG);
+		return dateWeek;
+	}
+	
+	private static String getStringFromRes(String nameRes, Context context){
+		
+		int resId = context.getResources().getIdentifier(nameRes, "string", context.getPackageName());
+		
+		return context.getString(resId);
+				
+	}
+
+}

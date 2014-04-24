@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">WStation</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_refresh">Refresh</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="last_updated">last updated</string>
+    <string name="humidity">humidity</string>
+    <string name="title_activity_geo">GeoActivity</string>
+    <string name="title_activity_city">CityActivity</string>
+    
+    <string name="dayOfWeek1">Monday</string>
+	<string name="dayOfWeek2">Tuesday</string>
+	<string name="dayOfWeek3">Wednesday</string>
+	<string name="dayOfWeek4">Thursday</string>
+	<string name="dayOfWeek5">Friday</string>
+	<string name="dayOfWeek6">Saturday</string>
+	<string name="dayOfWeek7">Sunday</string>
+	
+</resources>

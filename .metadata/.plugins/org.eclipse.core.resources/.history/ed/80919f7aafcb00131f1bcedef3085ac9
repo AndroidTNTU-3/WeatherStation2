@@ -1,0 +1,43 @@
+package com.unrealedz.wstation.utils;
+
+import java.util.Calendar;
+import java.util.GregorianCalendar;
+import java.util.TimeZone;
+
+import android.content.Context;
+
+public class Utils {
+	
+		
+	public static String getWeekday(String date, Context context){
+		
+		String dateWeek;
+		
+		String delims = "[-]";
+		String[] tokens = date.split(delims);
+		
+		int year = Integer.valueOf(tokens[0]);
+		int month = Integer.valueOf(tokens[1]);
+		int day = Integer.valueOf(tokens[2]);
+		
+		TimeZone MyTimezone = TimeZone.getDefault();
+		
+		GregorianCalendar calendar = new GregorianCalendar(MyTimezone);
+		calendar.set(year, month, day);
+		
+		int dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK);
+		
+		dateWeek = getStringFromRes("dayOfWeek" + dayOfWeek, context) + " " + tokens[2] + " " + calendar.MONTH;
+		
+		return dateWeek;
+	}
+	
+	private static String getStringFromRes(String nameRes, Context context){
+		
+		int resId = context.getResources().getIdentifier(nameRes, "string", context.getPackageName());
+		
+		return context.getString(resId);
+				
+	}
+
+}

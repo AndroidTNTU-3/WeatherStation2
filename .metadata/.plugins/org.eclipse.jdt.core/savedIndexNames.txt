@@ -1,0 +1,7 @@
+INDEX VERSION 1.126+C:\Users\Alex\weather2\.metadata\.plugins\org.eclipse.jdt.core
+848856923.index
+1133452840.index
+3764666944.index
+229874403.index
+1291098778.index
+2381207141.index
