@@ -1,0 +1,56 @@
+package com.unrealedz.wstation;
+
+import com.unrealedz.wstation.fragments.FragmentDay;
+import com.unrealedz.wstation.fragments.FragmentDayHours;
+
+import android.app.Activity;
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.os.Build;
+
+public class DetailDayActivity extends Activity {
+	
+	FragmentDay fragDay;
+	FragmentDayHours fragDayHours;
+	FragmentTransaction fTrans;
+
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_detail_day);
+		
+		fragDay = new FragmentDay();
+		fragDayHours = new FragmentDayHours();
+		
+		fTrans = getFragmentManager().beginTransaction();
+        fTrans.add(R.id.fragDay, fragDay);
+        fTrans.add(R.id.fragDayHours, fragDayHours);
+        fTrans.commit();
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.detail_day, menu);
+		return true;
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		int id = item.getItemId();
+		if (id == R.id.action_settings) {
+			return true;
+		}
+		return super.onOptionsItemSelected(item);
+	}
+
+	
+
+}

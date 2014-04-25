@@ -6,8 +6,8 @@ public class ForecastDay {
 	private int cloudId;
 	private String pictureName;
 	private int ppcp;
-	private String temperatureMin;
-	private String temperatureMax;
+	private int temperatureMin;
+	private int temperatureMax;
 	private int pressureMin;
 	private int pressureMax;
 	private int windMin;
@@ -57,19 +57,19 @@ public class ForecastDay {
 		this.ppcp = ppcp;
 	}
 
-	public String getTemperatureMin() {
+	public int getTemperatureMin() {
 		return temperatureMin;
 	}
 
-	public void setTemperatureMin(String temperatureMin) {
+	public void setTemperatureMin(int temperatureMin) {
 		this.temperatureMin = temperatureMin;
 	}
 
-	public String getTemperatureMax() {
+	public int getTemperatureMax() {
 		return temperatureMax;
 	}
 
-	public void setTemperatureMax(String temperatureMax) {
+	public void setTemperatureMax(int temperatureMax) {
 		this.temperatureMax = temperatureMax;
 	}
 

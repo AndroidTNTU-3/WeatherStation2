@@ -1,5 +1,6 @@
 package com.unrealedz.wstation.fragments;
 
+import com.unrealedz.wstation.DetailDayActivity;
 import com.unrealedz.wstation.MyCursorAdapter;
 import com.unrealedz.wstation.R;
 import com.unrealedz.wstation.R.id;
@@ -12,6 +13,7 @@ import android.app.Activity;
 import android.app.Fragment;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.Context;
+import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -19,6 +21,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -40,6 +44,7 @@ public class FragmentList extends Fragment{
 		
 		View view = inflater.inflate(R.layout.fragment_list, container, false);
 		listView = (ListView) view.findViewById(R.id.listView1);
+		listView.setOnItemClickListener(new ListListener());
 		fromFieldNames = new String[] 
 				{DbHelper.TEMPERATURE_MIN, DbHelper.TEMPERATURE_MAX};
 		toViewIDs = new int[]
@@ -59,7 +64,7 @@ public class FragmentList extends Fragment{
     public void onActivityCreated(Bundle savedInstanceState) {  
         super.onActivityCreated(savedInstanceState);  
         DataWeekHelper dataWeekHelper = new DataWeekHelper(this.getActivity());
-		Cursor cursor = dataWeekHelper.getCursor(DbHelper.WEEK_TABLE);
+		Cursor cursor = dataWeekHelper.getTemperatureDay(DbHelper.WEEK_TABLE);
 		//if (!MainActivity.isOnline(getActivity())){						// check is device online
 			if(cursor.getCount() != 0) setCursor(cursor);				// check dataBase is not empty 
 		//}
@@ -77,6 +82,22 @@ public class FragmentList extends Fragment{
         listView.setAdapter(adapter);
 		
 	}
+	
+	public class ListListener implements OnItemClickListener{
+
+		@Override
+		public void onItemClick(AdapterView<?> parent, View view, int position,
+				long id) {
+						           
+           /* Intent intent = new Intent(context, DetailDayActivity.class);
+            intent.putExtra("id", id);*/
+            String date = (String) ((TextView) view.findViewById(R.id.textDate)).getText();
+            //startActivity(intent);
+           Log.i("DEBUG:", "Position: " + position + " ID: " + id + date);
+            
+		}
+    	
+    }
 	
 	public void onDestroy() {
 	    super.onDestroy();

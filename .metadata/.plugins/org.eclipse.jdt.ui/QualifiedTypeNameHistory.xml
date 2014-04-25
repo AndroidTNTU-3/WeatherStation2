@@ -3,10 +3,20 @@
 <fullyQualifiedTypeName name="java.util.GregorianCalendar"/>
 <fullyQualifiedTypeName name="java.util.TimeZone"/>
 <fullyQualifiedTypeName name="java.util.Calendar"/>
-<fullyQualifiedTypeName name="android.content.Context"/>
 <fullyQualifiedTypeName name="com.unrealedz.wstation.utils.Utils"/>
 <fullyQualifiedTypeName name="android.text.format.DateUtils"/>
 <fullyQualifiedTypeName name="android.text.format.DateFormat"/>
 <fullyQualifiedTypeName name="java.text.SimpleDateFormat"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView.OnItemClickListener"/>
+<fullyQualifiedTypeName name="android.widget.AdapterView"/>
+<fullyQualifiedTypeName name="com.unrealedz.wstation.fragments.FragmentList.ListListener"/>
+<fullyQualifiedTypeName name="com.unrealedz.wstation.fragments.FragmentDay"/>
+<fullyQualifiedTypeName name="com.unrealedz.wstation.fragments.FragmentDayHours"/>
+<fullyQualifiedTypeName name="android.app.FragmentTransaction"/>
+<fullyQualifiedTypeName name="android.content.Context"/>
+<fullyQualifiedTypeName name="android.content.Intent"/>
+<fullyQualifiedTypeName name="com.unrealedz.wstation.DetailDayActivity"/>
+<fullyQualifiedTypeName name="com.unrealedz.wstation.bd.DataWeekHelper"/>
+<fullyQualifiedTypeName name="com.unrealedz.wstation.R.id"/>
 </qualifiedTypeNameHistroy>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <ImageView
+        android:id="@+id/imageCurrent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/_4_short_rain" />
+    
+    <LinearLayout
+        android:id="@+id/rect_gray"   
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:orientation="vertical" 
+        android:layout_below="@+id/imageCurrent"
+        android:background="@drawable/rect_gray">
+    	</LinearLayout>
+    
+    <TextView
+        android:id="@+id/tvCityDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/text_size_small"
+        android:layout_below="@+id/rect_gray"
+        android:paddingLeft="10dp"
+        android:text="City" />
+
+    <TextView
+        android:id="@+id/tvRegionDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tvCityDay"
+        android:text="Region"
+        android:paddingLeft="10dp"
+        android:textSize="@dimen/text_size_small" />
+
+    <TextView
+        android:id="@+id/tvTemperatureDay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/tvCityDay"
+        android:paddingRight="20dp"
+        android:text="TextView"
+        android:textSize="@dimen/text_size_large" />
+
+</RelativeLayout>

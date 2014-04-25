@@ -9,6 +9,6 @@
     <string name="humidity">humidity</string>
     <string name="title_activity_geo">GeoActivity</string>
     <string name="title_activity_city">CityActivity</string>
+    <string name="title_activity_detail_day">DetailDayActivity</string>
 
-	
 </resources>

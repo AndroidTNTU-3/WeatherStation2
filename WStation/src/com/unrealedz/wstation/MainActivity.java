@@ -150,7 +150,19 @@ public class MainActivity extends Activity implements LoaderCallBack, LoaderCall
 	public void onLoadFinished(Loader<Cursor> arg0, Cursor cursor) {
 		
 		fragList.setCursor(cursor);
-		   
+		//test(); 
+	}
+	
+	public void test(){
+		DataWeekHelper dwh = new DataWeekHelper(getApplicationContext());
+		Cursor c = dwh.getTemperatureDay(DbHelper.WEEK_TABLE);
+		while(c.moveToNext()){
+			String date = c.getString(c.getColumnIndex(DbHelper.DATE));
+			int tmin = c.getInt(c.getColumnIndex(DbHelper.TEMPERATURE_MIN));
+			int tmax = c.getInt(c.getColumnIndex(DbHelper.TEMPERATURE_MAX));
+			String pname = c.getString(c.getColumnIndex(DbHelper.PICTURE_NAME));
+			Log.i("DEBUG TEMP", date + " " + tmin + " " +  tmax + pname);
+		}
 	}
 
 	@Override

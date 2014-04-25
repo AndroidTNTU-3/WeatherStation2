@@ -294,9 +294,9 @@ public class WeatherParser {
 
 			String name = xpp.getName();
 			if ("min".equals(name)) {
-				dayForecast.setTemperatureMin(readText(xpp));
+				dayForecast.setTemperatureMin(Integer.valueOf(readText(xpp)));
 			} else if ("max".equals(name)) {
-				dayForecast.setTemperatureMax(readText(xpp));
+				dayForecast.setTemperatureMax(Integer.valueOf(readText(xpp)));
 			} else {
 				skipTag(xpp);
 			}

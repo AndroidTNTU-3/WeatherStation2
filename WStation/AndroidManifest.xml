@@ -51,6 +51,10 @@
             android:name="com.unrealedz.wstation.CityActivity"
             android:label="@string/title_activity_city" >
         </activity>
+        <activity
+            android:name="com.unrealedz.wstation.DetailDayActivity"
+            android:label="@string/title_activity_detail_day" >
+        </activity>
     </application>
 
 </manifest>

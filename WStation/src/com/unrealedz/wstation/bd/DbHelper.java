@@ -58,6 +58,9 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String HUMIDITY_MAX = "humidityMax";
     public static final String WPI = "wpi";
     
+    public static final String TEMPERATURE_DAY_MIN = "temperatureDayMin";
+    public static final String TEMPERATURE_DAY_MAX = "temperatureDayMax";
+    
     public static final String CREATE_DB_INFO_TABLE = "CREATE TABLE IF NOT EXISTS " + CITY_DB_INFO_TABLE
             + "( _id INTEGER PRIMARY KEY AUTOINCREMENT, " + LAST_UPDATED + " TEXT," + CITY_DB_INFO_VERSION + " TEXT);";
     
@@ -80,7 +83,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public static final String CREATE_WEEK_TABLE = "CREATE TABLE IF NOT EXISTS " + WEEK_TABLE
             + "( _id INTEGER PRIMARY KEY AUTOINCREMENT, " + DATE + " TEXT," + HOUR + " INT, "
             + CLOUD_ID + " INT, " + PICTURE_NAME + " TEXT, " + PPCP + " INT, " + TEMPERATURE_MIN
-            + " TEXT, " + TEMPERATURE_MAX + " TEXT, " + PRESSURE_MIN + " INT, " + PRESSURE_MAX
+            + " INT, " + TEMPERATURE_MAX + " INT, " + PRESSURE_MIN + " INT, " + PRESSURE_MAX
             + " INT, " + WIND_MIN + " INT, " + WIND_MAX + " INT, " + WIND_RUMB + " INT, " + HUMIDITY_MIN
             + " INT, " + HUMIDITY_MAX + " INT, " + WPI + " INT);";
 

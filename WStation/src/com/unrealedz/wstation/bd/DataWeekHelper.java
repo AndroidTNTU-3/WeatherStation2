@@ -16,6 +16,9 @@ public class DataWeekHelper {
 
 	private SQLiteDatabase db;
 	private List<ForecastDay> forecastDays;
+	public static final String[] KEYS_TEMPERATURE_DAY = {DbHelper.DATE, 
+												"MIN(" + DbHelper.TEMPERATURE_MIN + ") AS " +  DbHelper.TEMPERATURE_MIN,
+												"MAX(" + DbHelper.TEMPERATURE_MAX + ") AS " +  DbHelper.TEMPERATURE_MAX};
 	
 	public DataWeekHelper(Context context) {
         DbHelper openHelper = new DbHelper(context);
@@ -46,6 +49,26 @@ public class DataWeekHelper {
 		}
 
 		
+	}
+	
+	public Cursor getTemperatureDay(String tableName) {
+		/*Cursor c = 	db.query(tableName, KEYS_TEMPERATURE_DAY, 
+				null, null, DbHelper.DATE, null, null, null);*/
+		/*String sql = "SELECT " +  DbHelper.DATE + ", " + DbHelper.TEMPERATURE_MIN + ", " + DbHelper.TEMPERATURE_MAX + ", "
+				+ DbHelper.PICTURE_NAME +  " FROM (SELECT " + DbHelper.DATE + ", MIN(" + DbHelper.TEMPERATURE_MIN + ") AS " 
+				+ DbHelper.TEMPERATURE_MIN + ", MAX(" + DbHelper.TEMPERATURE_MAX + ") AS " + DbHelper.TEMPERATURE_MAX + ", " +
+				DbHelper.PICTURE_NAME + ", " + DbHelper.HOUR + " FROM " + tableName + " WHERE " + DbHelper.HOUR + " = 15 GROUP BY " + DbHelper.DATE + ")";
+		Cursor c = db.rawQuery(sql, null);*/
+		
+		String sql = "SELECT T1._id AS _id, T1.date AS date, T1.temperatureMin AS temperatureMin, T1.temperatureMax AS temperatureMax, T2.pictureName AS pictureName FROM "
+				+ "(SELECT _id, date, temperatureMin, temperatureMax FROM (SELECT _id, date, MIN(temperatureMin) AS temperatureMin, MAX(temperatureMax) "
+				+ "AS temperatureMax FROM week GROUP BY date)) T1,  (SELECT date,  pictureName FROM week WHERE hour = 15) T2 WHERE T1.date = T2.date";
+		
+		Cursor c = db.rawQuery(sql, null);
+		if (c != null) {
+			c.moveToFirst();
+		}
+		return c;
 	}
 	
 	public void cleanOldRecords() {
@@ -82,5 +105,17 @@ public class DataWeekHelper {
 	        values.put(DbHelper.WPI, forecastDay.getWpi());
 	        return values;
 	 }
+
+	/*public void getCursorDay(long id) {
+		String where = DbHelper.CITY_DB_NAME_EN + " = " + "Ternopil";
+		String[] selectionArgs = new String[] { id };
+		Cursor c = 	db.query(DbHelper.CITY_DB_TABLE, ALL_KEYS, 
+				DbHelper.DATE + "=?", selectionArgs, null, null, null, null);
+		if (c != null) {
+			c.moveToFirst();
+		}
+		return c;
+		
+	}*/
 	
 }
